@@ -16,7 +16,10 @@ const Navbar = () => {
         {/* Left Section */}
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 border-2 border-gray-700 bg-orange-400 rounded-full"></div>
-          <p className="text-3xl font-bold font-serif text-white">Ravikant</p>
+       <Link href={"/"}>
+            {" "}
+            <p className="text-3xl font-bold font-serif text-white">Ravikant</p>
+          </Link>
           <p className="text-sm text-gray-400 sm:block">(Developer)</p>
         </div>
 
