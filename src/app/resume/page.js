@@ -37,7 +37,7 @@ const Resume = () => {
             Hi there! 👋 I&apos;m a passionate <strong>Full Stack Developer</strong> with a love for crafting dynamic and scalable web applications. Specializing in <strong>JavaScript</strong>, <strong>React.js</strong>, <strong>Next.js</strong>, <strong>Node.js</strong>, and <strong>MongoDB</strong>, I thrive on building seamless user experiences that not only look great but perform even better.
           </p>
           <p className="text-lg text-gray-300 leading-relaxed mt-4">
-            💻 <strong>What Drives Me</strong>: I&apos;m motivated by the impact technology can have on people's lives and businesses. I&apos;m always on the lookout for new challenges, tools to learn, and innovative ways to bring ideas to life. 🚀 <strong>Let&apos;s Build Something Amazing</strong>: I believe in the power of collaboration, creativity, and continuous learning.
+            💻 <strong>What Drives Me</strong>: I&apos;m motivated by the impact technology can have on people&apos;s lives and businesses. I&apos;m always on the lookout for new challenges, tools to learn, and innovative ways to bring ideas to life. 🚀 <strong>Let&apos;s Build Something Amazing</strong>: I believe in the power of collaboration, creativity, and continuous learning.
           </p>
         </motion.div>
 
@@ -163,4 +163,3 @@ const Resume = () => {
 };
 
 export default Resume;
-
