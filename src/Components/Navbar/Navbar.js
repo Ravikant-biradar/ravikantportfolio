@@ -73,9 +73,9 @@ const Navbar = () => {
           <Link href={"/resume"}>
             <p className="cursor-pointer py-2 hover:text-yellow-400">Resume</p>
           </Link>
-          <Link href={"/projects"}>
+          <Link href={"/project"}>
             <p className="cursor-pointer py-2 hover:text-yellow-400">
-              Project
+              Projects
             </p>
           </Link>
           <Link href={"/contact"}>
