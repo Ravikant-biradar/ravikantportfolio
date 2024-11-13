@@ -1,13 +1,20 @@
 "use client";
-
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { FaWhatsapp } from "react-icons/fa"; // Import Font Awesome Icon for WhatsApp
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
 
   // Toggle the mobile menu
   const handleToggle = () => setIsOpen(!isOpen);
+
+  // Automatically show the chat bubble message after a delay
+  useEffect(() => {
+    const timer = setTimeout(() => setShowMessage(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -16,8 +23,7 @@ const Navbar = () => {
         {/* Left Section */}
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 border-2 border-gray-700 bg-orange-400 rounded-full"></div>
-       <Link href={"/"}>
-            {" "}
+          <Link href={"/"}>
             <p className="text-3xl font-bold font-serif text-white">Ravikant</p>
           </Link>
           <p className="text-sm text-gray-400 sm:block">(Developer)</p>
@@ -59,74 +65,44 @@ const Navbar = () => {
             )}
           </button>
         </div>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8 font-serif text-lg">
-          <Link href={"/resume"}>
-            <p className="cursor-pointer text-gray-300 hover:text-yellow-400 transition-all">
-              Resume
-            </p>
-          </Link>
-          <Link href={"/projects"}>
-            {" "}
-            <p className="cursor-pointer text-gray-300 hover:text-yellow-400 transition-all">
-              Projects
-            </p>
-          </Link>
-          <Link href={"/contact"}>
-            <p className="cursor-pointer text-gray-300 hover:text-yellow-400 transition-all">
-              Contact
-            </p>
-          </Link>
-        </div>
       </section>
 
-      {/* Mobile Menu with Smooth Transition */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div
-          className={`fixed inset-0 bg-gray-800 text-white flex flex-col items-center justify-center gap-6 font-serif text-2xl z-20 p-8 transition-all duration-500 ease-in-out transform ${
-            isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-          }`}
-        >
-          {/* Menu Items */}
+        <div className="fixed inset-0 bg-gray-800 text-white flex flex-col items-center justify-center gap-6 font-serif text-2xl z-20 p-8">
           <Link href={"/resume"}>
-            {" "}
-            <p className="cursor-pointer py-2 hover:text-yellow-400 transition-all duration-200">
-              Resume
-            </p>
+            <p className="cursor-pointer py-2 hover:text-yellow-400">Resume</p>
           </Link>
-          <Link href={"/project"}>
-            {" "}
-            <p className="cursor-pointer py-2 hover:text-yellow-400 transition-all duration-200">
+          <Link href={"/projects"}>
+            <p className="cursor-pointer py-2 hover:text-yellow-400">
               Projects
             </p>
           </Link>
           <Link href={"/contact"}>
-            {" "}
-            <p className="cursor-pointer py-2 hover:text-yellow-400 transition-all duration-200">
-              Contact
-            </p>
+            <p className="cursor-pointer py-2 hover:text-yellow-400">Contact</p>
           </Link>
-
-          {/* Close Button */}
-          <button onClick={handleToggle} className="absolute top-6 right-6">
-            <svg
-              className="w-8 h-8 text-red-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
         </div>
       )}
+
+      {/* Floating WhatsApp Button with Animation */}
+      <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end">
+        {/* Animated Chat Bubble */}
+        {showMessage && (
+          <div className="bg-green-500 text-white text-sm rounded-xl px-4 py-2 mb-2 animate-bounce shadow-lg">
+            Need help? Chat with me!
+          </div>
+        )}
+
+        {/* WhatsApp Button */}
+        <a
+          href="https://wa.me/919972548995"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg flex items-center justify-center transition-transform transform hover:scale-110 animate-pulse"
+        >
+          <FaWhatsapp className="text-3xl" />
+        </a>
+      </div>
     </>
   );
 };
